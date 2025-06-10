@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kakao 지도 테스트</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+
+    <!-- 본인의 실제 Kakao API 키 직접 삽입 -->
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=45451052b0313a2dfda18f6a533c7720&autoload=true"></script>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script>
+      window.onload = function () {
+        console.log('페이지 로드됨, kakao 객체:', window.kakao);
+
+        if (typeof kakao === 'undefined') {
+          alert(
+            'Kakao Maps SDK 로딩 실패! API 키 또는 도메인 등록 문제입니다.'
+          );
+          return;
+        }
+
+        kakao.maps.load(() => {
+          console.log('kakao.maps.load 실행됨');
+
+          const container = document.getElementById('map');
+          const options = {
+            center: new kakao.maps.LatLng(36.6357, 127.456),
+            level: 4,
+          };
+
+          new kakao.maps.Map(container, options);
+        });
+      };
+    </script>
+  </body>
+</html>
