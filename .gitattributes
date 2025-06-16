@@ -1,0 +1,13 @@
+# Python 파일이 메인 로직이 아니라면 제외
+/app.py linguist-vendored
+
+# public, venv, dist, build 디렉토리는 제외
+/public/** linguist-vendored
+/venv/** linguist-vendored
+/dist/** linguist-vendored
+/build/** linguist-vendored
+/.vite/** linguist-vendored
+
+# JSON, Lock 파일 등은 제외
+*.json linguist-vendored
+*.lock linguist-vendored
